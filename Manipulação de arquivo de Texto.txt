@@ -1,0 +1,60 @@
+package persistencia;
+
+------------------------------------------
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class ManipularArquivo {
+	public static void main(String[] args) {
+		String arqu = "C:\\Users\\Aluno\\Documents\\APDS\\menino_sem_nome.txt";  //diretório do arquuivo
+		
+		File fp = new File(arqu);
+		Scanner sc = null;
+		
+		try {
+			sc = new Scanner(fp);
+			while (sc.hasNextLine())  { // ler até EOF
+				String line = sc.nextLine();
+				System.out.println(line);
+			}
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (sc != null) sc.close();
+		}
+		
+	}
+}
+
+-----------------------------------------
+
+
+
+package persistencia;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+
+public class ManipularArquivo {
+	public static void main(String[] args) {
+		String arqu = "C:\\Users\\Aluno\\Documents\\APDS\\menino_sem_nome.txt";
+		// try com recursos;
+		try (BufferedReader br = new BufferedReader(new FileReader(arqu))) {
+			String line = br.readLine();
+			while (line != null) { //equivale ao EOF do Scanner
+				System.out.println(line);
+				line = br.readLine();
+			}
+			} catch (IOException e) {
+				System.out.println("Erro: " + e.getMessage());
+			}
+		
+	}
+}
+
+
