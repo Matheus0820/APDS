@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="550.0" maxWidth="600.0" minHeight="550.0" minWidth="600.0" prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLTelaPedidosController">
+   <right>
+      <Pane maxHeight="550.0" maxWidth="230.0" minHeight="550.0" minWidth="230.0" prefHeight="550.0" prefWidth="230.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="65.0" layoutY="4.0" text="Sobre o Pedido">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Line endX="125.0" layoutX="105.0" layoutY="26.0" startX="-105.0" />
+            <Label layoutX="54.0" layoutY="36.0" text="Adicionar Refeição">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="1.0" layoutY="53.0" text="Selecionar Refeição:" />
+            <SplitMenuButton fx:id="SplitMenuButtonIDRef" layoutX="1.0" layoutY="68.0" mnemonicParsing="false" text="Selecione" />
+            <Button fx:id="ButtonSelecionar" layoutX="131.0" layoutY="110.0" mnemonicParsing="false" onAction="#adicionarRefeicao" text="Adicionar" />
+            <Label fx:id="labelRefeicao" layoutX="1.0" layoutY="148.0" text="Itens do Pedido:" />
+            <ListView fx:id="ListViewPedido" fixedCellSize="20.0" layoutY="163.0" prefHeight="200.0" prefWidth="230.0" />
+            <SplitMenuButton fx:id="SplitMenuButtonIDRefRmv" layoutX="2.0" layoutY="416.0" mnemonicParsing="false" text="Selecione" />
+            <Label layoutX="53.0" layoutY="384.0" text="Remover Refeição">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
+            <Button fx:id="ButtonRemover" layoutX="119.0" layoutY="415.0" mnemonicParsing="false" onAction="#removerRefeicao" text="Remover" />
+            <Label fx:id="labelValor" layoutX="3.0" layoutY="363.0" text="Valor do Pedido: " />
+            <Line endX="125.0" layoutX="105.0" layoutY="384.0" startX="-105.0" />
+            <Button fx:id="ButtonFazerPedido" layoutX="11.0" layoutY="490.0" mnemonicParsing="false" onAction="#fazerPedido" text="Fazer Pedido" />
+            <Label layoutX="1.0" layoutY="93.0" text="Quantidade:" />
+            <Spinner fx:id="SpinnerQuantidade" layoutX="1.0" layoutY="110.0" prefHeight="25.0" prefWidth="68.0" />
+            <Label layoutX="2.0" layoutY="399.0" text="Selecionar Refeição:" />
+            <Line endX="124.0" layoutX="106.0" layoutY="451.0" startX="-106.0" />
+            <Button fx:id="ButtonCancelarPedido" layoutX="109.0" layoutY="490.0" mnemonicParsing="false" onAction="#cancelarPedido" text="Cancelar Pedido" />
+            <Label layoutX="7.0" layoutY="461.0" text="Número da mesa:" />
+            <SplitMenuButton fx:id="SplitMenuButtonNumMesa" layoutX="115.0" layoutY="458.0" mnemonicParsing="false" text="Selecione" />
+            <Label fx:id="labelAlerta" layoutX="-1.0" layoutY="22.0" prefHeight="16.0" prefWidth="232.0" textFill="RED">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Button layoutX="191.0" layoutY="-1.0" mnemonicParsing="false" onAction="#Voltar" prefHeight="0.0" prefWidth="40.0" style="-fx-background-color: transparent;" text="→" />
+         </children>
+      </Pane>
+   </right>
+   <center>
+      <TableView fx:id="TableViewCardapio" maxHeight="550.0" maxWidth="370.0" minHeight="550.0" minWidth="370.0" prefHeight="550.0" prefWidth="370.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="TableColumnID" maxWidth="40.0" minWidth="32.0" prefWidth="32.0" sortType="DESCENDING" text="ID" />
+          <TableColumn fx:id="TableColumnRefeicoes" minWidth="-1.0" prefWidth="278.0" sortType="DESCENDING" text="Refeições" />
+            <TableColumn fx:id="TableColumnValor" maxWidth="90.0" minWidth="55.0" prefWidth="60.0" sortType="DESCENDING" text="Valor" />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>

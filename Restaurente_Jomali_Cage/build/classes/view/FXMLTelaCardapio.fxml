@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="550.0" maxWidth="600.0" minHeight="550.0" minWidth="600.0" prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXMLTelaCardapioController">
+   <right>
+      <Pane prefWidth="238.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="TextFieldNomeRefeicao" layoutX="7.0" layoutY="31.0" prefHeight="20.0" prefWidth="150.0" promptText="EX.: Lasanha" />
+            <Label layoutX="9.0" layoutY="16.0" text="Refeição:">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="RadioButtonTipo1" layoutX="42.0" layoutY="94.0" mnemonicParsing="false" text="1 " />
+            <RadioButton fx:id="RadioButtonTipo2" layoutX="85.0" layoutY="94.0" mnemonicParsing="false" text="2" />
+            <TextField fx:id="TextFieldIngredientes" layoutX="7.0" layoutY="70.0" prefHeight="20.0" prefWidth="150.0" promptText="EX.: Queijo, Presunto..." />
+            <Label layoutX="8.0" layoutY="55.0" text="Ingredientes:">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="94.0" text="Tipo:">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="9.0" layoutY="109.0" text="Valor:">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="TextFieldValor" layoutX="9.0" layoutY="123.0" prefHeight="20.0" prefWidth="60.0" promptText="EX.: 20" />
+            <Button fx:id="ButtonConcluir" layoutX="119.0" layoutY="123.0" mnemonicParsing="false" onAction="#adicionar" prefHeight="25.0" prefWidth="70.0" text="Concluir" />
+            <Button fx:id="ButtonRemover" layoutX="110.0" layoutY="335.0" mnemonicParsing="false" onAction="#remover" prefHeight="25.0" prefWidth="70.0" text="Remover">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Line endX="138.0" layoutX="100.0" layoutY="160.0" startX="-100.0" />
+            <Label layoutX="6.0" layoutY="186.0" text="ID da refeição:" />
+            <SplitMenuButton fx:id="SplitMenuButtonIDsRefeicoes" layoutX="88.0" layoutY="185.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="93.0" text="Selecione" />
+            <Label layoutX="6.0" layoutY="206.0" text="Refeição:" />
+            <TextField fx:id="TextFieldModRefeicao" layoutX="5.0" layoutY="224.0" text=" " />
+            <Label layoutX="6.0" layoutY="248.0" text="Ingredientes:" />
+            <TextField fx:id="TextFieldModIngredientes" layoutX="5.0" layoutY="265.0" text=" " />
+            <TextField fx:id="TextFieldModValor" layoutX="5.0" layoutY="305.0" text=" " />
+            <Label layoutX="6.0" layoutY="288.0" text="Valor: " />
+            <Button fx:id="ButtonModificar" layoutX="15.0" layoutY="335.0" mnemonicParsing="false" onAction="#modificar" text="Modificar" />
+            <Label layoutX="60.0" layoutY="2.0" text="Adicionar Refeição">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="166.0" text="Modificar Refeição">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font>
+            </Label>
+            <Button fx:id="ButtonVoltar" layoutX="208.0" mnemonicParsing="false" onAction="#TelaAnterior" prefHeight="23.0" prefWidth="30.0" style="-fx-background-color: transparent;" text="→" textAlignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="ButtonImportar" layoutY="527.0" mnemonicParsing="false" onAction="#importar" prefHeight="10.0" prefWidth="60.0" text="Importar">
+               <font>
+                  <Font name="System Bold" size="10.0" />
+               </font>
+            </Button>
+            <Button layoutX="189.0" layoutY="183.0" mnemonicParsing="false" onAction="#PuxarDados" prefHeight="28.0" prefWidth="36.0">
+               <font>
+                  <Font name="System Bold" size="9.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/puxardados.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+   </right>
+   <center>
+      <TableView fx:id="TableViewCardapio" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="TableColumnID" maxWidth="1000.0" prefWidth="43.0" text="id" />
+            <TableColumn fx:id="TableColumnTipo" maxWidth="2500.0" prefWidth="47.0" text="Tipo" />
+          <TableColumn fx:id="TableColumnRefeicao" maxWidth="3500.0" prefWidth="104.0" text="Refeição" />
+            <TableColumn fx:id="TableColumnIngredientes" prefWidth="125.0" text="Ingredientes" />
+            <TableColumn fx:id="TableColumnValor" maxWidth="2000.0" prefWidth="75.0" text="Valor" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </center>
+</BorderPane>
